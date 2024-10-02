@@ -1,0 +1,2 @@
+echo $((WATER + STIR)) | awk '{ printf("%d", strtonum($0)) }' | awk '{ print $0 }' 
+
