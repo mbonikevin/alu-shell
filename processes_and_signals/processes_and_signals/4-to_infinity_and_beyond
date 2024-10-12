@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Get ready for an endless loop of "To infinity and beyond!" every 2 seconds
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
