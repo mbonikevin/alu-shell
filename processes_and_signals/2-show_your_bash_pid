@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-# Show lines containing the bash word to display bash PID
+# Let’s find the PID of your bash shell, shall we?
 
 # shellcheck disable=SC2009
 ps aux | grep bash

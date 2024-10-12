@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
-# Stop the process running 4-to_infinity_and_beyond using its PID
+# This will stop the "To infinity and beyond" script using its PID
 
 pkill -f 4-to_infinity_and_beyond

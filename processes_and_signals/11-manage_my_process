@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-
-# Manage the manage_my_process script
+# Manage a process that keeps running in the background
 
 case "$1" in
     start)
-        echo "manage_my_process started"
+        echo "Starting the process..."
         echo $$ > /var/run/my_process.pid
         while true; do
             echo "I am alive!" >> /tmp/my_process
@@ -12,11 +11,11 @@ case "$1" in
         done &
         ;;
     stop)
-        echo "manage_my_process stopped"
+        echo "Stopping the process..."
         rm /var/run/my_process.pid
         ;;
     restart)
-        echo "manage_my_process restarted"
+        echo "Restarting the process..."
         rm /var/run/my_process.pid
         echo $$ > /var/run/my_process.pid
         while true; do

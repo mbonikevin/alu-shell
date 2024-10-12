@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# This script will keep saying "To infinity and beyond" and will respond if you try to stop it
-
-trap "echo I am invincible!!!" SIGTERM
-
-while true; do
-    echo "To infinity and beyond"
-    sleep 2
-done

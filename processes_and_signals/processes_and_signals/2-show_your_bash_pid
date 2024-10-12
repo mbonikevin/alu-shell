@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Let’s find the PID of your bash shell, shall we?
-
-# shellcheck disable=SC2009
-ps aux | grep bash

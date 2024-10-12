@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-# Create a PID file and respond to different signals with messages
+# This script creates a PID file and reacts to certain signals in a friendly way
 
 echo $$ > /var/run/myscript.pid
 trap "echo I hate the kill command" SIGTERM

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
-# Stop the process running 4-to_infinity_and_beyond without using kill or killall
+# Let’s quietly stop the "To infinity and beyond" script without the usual methods
 
 pgrep -f 4-to_infinity_and_beyond | xargs -r kill
