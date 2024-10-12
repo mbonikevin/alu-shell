@@ -1,40 +1,18 @@
 #!/usr/bin/env bash
-# Manage a process that keeps running in the background
+# my process managment
 
-start () {
-    if [ ! -f /var/run/my_process.pid ]; then
-        ./manage_my_process &
-        echo $! > /var/run/my_process.pid
-        echo "manage_my_process started"               
-    else
-        echo "manage_my_process is already running."
-    fi
+start () {    ./manage_my_process &
+    echo $! > /var/run/my_process.pid    echo "manage_my_process started"               
 }
-
 stop () {
-    if [ -f /var/run/my_process.pid ]; then
-        pkill -F /var/run/my_process.pid
-        rm -f /var/run/my_process.pid
-        echo "manage_my_process stopped"               
-    else
-        echo "PID file does not exist. Process may not be running."
-    fi
-}
-
+    pkill -f "./manage_my_process"    rm -rf /var/run/my_process.pid
+    echo "manage_my_process stopped"               }
 restart () {
-    if [ -f /var/run/my_process.pid ]; then
-        pkill -F /var/run/my_process.pid
-        rm -f /var/run/my_process.pid
-    fi
-    ./manage_my_process &
-    echo $! > /var/run/my_process.pid
-    echo "manage_my_process restarted"             
-}
-
-case "$1" in
-  start) start ;;
-  stop)  stop ;;
-  restart) restart ;;
-  *) echo "Usage: manage_my_process {start|stop|restart}"                                           
-     ;;
+    pkill -f "./manage_my_process"    rm -rf /var/run/my_process.pid
+    ./manage_my_process &    echo $! >> /var/run/my_process.pid
+    echo "manage_my_process restarted"             }
+case "$1" in  start) start ;;
+  stop)  stop;;  restart) restart;;
+  *) echo "Usage: manage_my_process {start|stop|r\estart}"                                           
+      ;;
 esac
