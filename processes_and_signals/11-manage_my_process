@@ -6,6 +6,13 @@ start () {
         ./manage_my_process &
         echo $! > /var/run/my_process.pid
         echo "manage_my_process started"               
+
+        # Check if the process is running
+        if ps -p $(cat /var/run/my_process.pid) > /dev/null; then
+            echo "manage_my_process is running."
+        else
+            echo "Failed to start manage_my_process."
+        fi
     else
         echo "manage_my_process is already running."
     fi
@@ -29,6 +36,13 @@ restart () {
     ./manage_my_process &
     echo $! > /var/run/my_process.pid
     echo "manage_my_process restarted"             
+
+    # Check if the process is running
+    if ps -p $(cat /var/run/my_process.pid) > /dev/null; then
+        echo "manage_my_process is running."
+    else
+        echo "Failed to start manage_my_process."
+    fi
 }
 
 case "$1" in
