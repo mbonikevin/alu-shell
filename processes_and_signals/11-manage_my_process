@@ -2,14 +2,18 @@
 # Manage a process that keeps running in the background
 
 start () {
-    ./manage_my_process &
-    echo $! > /var/run/my_process.pid
-    echo "manage_my_process started"               
+    if [ ! -f /var/run/my_process.pid ]; then
+        ./manage_my_process &
+        echo $! > /var/run/my_process.pid
+        echo "manage_my_process started"               
+    else
+        echo "manage_my_process is already running."
+    fi
 }
 
 stop () {
     if [ -f /var/run/my_process.pid ]; then
-        pkill -f "./manage_my_process"
+        pkill -F /var/run/my_process.pid
         rm -f /var/run/my_process.pid
         echo "manage_my_process stopped"               
     else
@@ -19,7 +23,7 @@ stop () {
 
 restart () {
     if [ -f /var/run/my_process.pid ]; then
-        pkill -f "./manage_my_process"
+        pkill -F /var/run/my_process.pid
         rm -f /var/run/my_process.pid
     fi
     ./manage_my_process &
