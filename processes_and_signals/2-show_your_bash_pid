@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Show lines containing the bash word to display bash PID
+
+# shellcheck disable=SC2009
+ps aux | grep bash

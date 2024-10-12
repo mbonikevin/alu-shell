@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Manage the manage_my_process script
+
+case "$1" in
+    start)
+        echo "manage_my_process started"
+        echo $$ > /var/run/my_process.pid
+        while true; do
+            echo "I am alive!" >> /tmp/my_process
+            sleep 2
+        done &
+        ;;
+    stop)
+        echo "manage_my_process stopped"
+        rm /var/run/my_process.pid
+        ;;
+    restart)
+        echo "manage_my_process restarted"
+        rm /var/run/my_process.pid
+        echo $$ > /var/run/my_process.pid
+        while true; do
+            echo "I am alive!" >> /tmp/my_process
+            sleep 2
+        done &
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        ;;
+esac

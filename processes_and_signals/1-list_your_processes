@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# List all currently running processes
+
+ps aux

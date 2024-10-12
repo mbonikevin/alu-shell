@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Show the PID and name of processes with "bash" in their name
+
+for pid in $(pgrep -f bash); do
+    echo "$pid bash"
+done
