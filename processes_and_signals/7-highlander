@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Display "To infinity and beyond" indefinitely, responding to SIGTERM with a message
 

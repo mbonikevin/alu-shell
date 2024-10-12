@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Stop the process running 4-to_infinity_and_beyond using its PID
 

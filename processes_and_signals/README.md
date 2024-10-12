@@ -1,1 +1,1 @@
-Shell, processes and signals
+#!/usr/bin/env bash
