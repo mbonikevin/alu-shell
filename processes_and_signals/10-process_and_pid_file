@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Create the PID file containing the script's PID
+echo $$ > /var/run/myscript.pid
+
+sigterm_handler() {
+    echo "I hate the kill command"
+    cleanup_and_exit
+}
+
+sigint_handler() {
+    echo "Y U no love me?!"
+}
+
+cleanup_and_exit() {
+    rm /var/run/myscript.pid
+    exit 0
+}
+
+trap sigterm_handler SIGTERM
+trap sigint_handler SIGINT
+trap cleanup_and_exit SIGQUIT
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 1
+done
